@@ -1,11 +1,11 @@
-package com.sargis.kh.android_architecture;
+package com.sargis.kh.android_architecture.view;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.sargis.kh.android_architecture.R;
 import com.sargis.kh.android_architecture.contract.MVPContract;
 import com.sargis.kh.android_architecture.databinding.ActivityMainBinding;
 import com.sargis.kh.android_architecture.presenter.MVPPresenter;
