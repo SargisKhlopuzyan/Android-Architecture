@@ -1,9 +1,8 @@
 package com.sargis.kh.android_architecture;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 
 import com.sargis.kh.android_architecture.databinding.ActivityMainBinding;
 
