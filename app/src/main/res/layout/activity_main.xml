@@ -7,20 +7,12 @@
         <import type="android.view.View" />
 
         <variable
-            name="message"
-            type="String" />
-
-        <variable
-            name="onUpdateClickListener"
-            type="android.view.View.OnClickListener" />
-
-        <variable
-            name="onShowClickListener"
-            type="android.view.View.OnClickListener" />
+            name="mvvmViewModel"
+            type="com.sargis.kh.android_architecture.viewmodel.MVVM_ViewModel" />
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -29,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@{message}"
+            android:text="@{mvvmViewModel.message}"
             android:textAppearance="?android:textAppearanceLarge"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/textViewFirstName"
@@ -63,9 +55,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/update"
-            android:onClick="@{(v) -> onUpdateClickListener.onClick(v)}"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLastName"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{() -> mvvmViewModel.onUpdateClicked(textViewFirstName.getText().toString(), textViewLastName.getText().toString())}"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLastName"
+            app:layout_constraintBottom_toTopOf="@+id/textViewHistory"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/buttonShowMessage"
             app:layout_constraintVertical_chainStyle="packed"
@@ -77,11 +69,25 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/show"
-            android:onClick="@{(v) -> onShowClickListener.onClick(v)}"
+            android:onClick="@{() -> mvvmViewModel.onShowClicked()}"
             app:layout_constraintTop_toTopOf="@+id/buttonUpdate"
             app:layout_constraintBottom_toBottomOf="@+id/buttonUpdate"
             app:layout_constraintLeft_toRightOf="@+id/buttonUpdate"
             app:layout_constraintRight_toRightOf="parent"/>
 
-    </android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/textViewHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{mvvmViewModel.people.toString()}"
+            app:layout_constraintVertical_bias="0.1"
+            android:layout_marginTop="@dimen/margin_top"
+            android:textAppearance="?android:textAppearanceLarge"
+            app:layout_constraintTop_toBottomOf="@+id/buttonUpdate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/buttonUpdate"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
