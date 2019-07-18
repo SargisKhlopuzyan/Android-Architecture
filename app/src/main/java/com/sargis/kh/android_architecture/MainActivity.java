@@ -1,8 +1,9 @@
 package com.sargis.kh.android_architecture;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.sargis.kh.android_architecture.databinding.ActivityMainBinding;
 
